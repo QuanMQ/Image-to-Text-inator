@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Image-to-Text-inator</title>
+  </head>
+  <body>
+    <main class="container">
+      <h1>Image-to-Text-inator</h1>
+      <h2>Extract text from your images</h2>
+      <form id="form">
+        <div class="mb-3">
+          <label for="file" class="form-label"
+            ><i class="far fa-file-image"></i> Upload your image (.png,
+            .jpg/.jpeg, .gif)</label
+          >
+          <input
+            type="file"
+            id="file"
+            class="form-control"
+            accept=".png, .jpg, .jpeg, .gif"
+          />
+        </div>
+        <span>OR</span>
+        <div class="mb-3">
+          <label for="url" class="form-label"
+            ><i class="fas fa-link"></i> Paste URL to source file (Recommended
+            for file sizes > 10MB)</label
+          >
+          <input type="text" id="url" class="form-control" />
+        </div>
+        <div class="mb-3">
+          <label for="language" class="form-label"
+            ><i class="fas fa-language"></i> Language</label
+          >
+          <select id="language" class="form-control">
+            <option value="ara">Arabic</option>
+            <option value="bul">Bulgarian</option>
+            <option value="chs">Chinese (Simplified)</option>
+            <option value="cht">Chinese (Traditional)</option>
+            <option value="hrv">Croatian</option>
+            <option value="cze">Czech</option>
+            <option value="dan">Danish</option>
+            <option value="dut">Dutch</option>
+            <option value="eng" selected>English</option>
+            <option value="fin">Finnish</option>
+            <option value="fre">French</option>
+            <option value="ger">German</option>
+            <option value="gre">Greek</option>
+            <option value="hun">Hungarian</option>
+            <option value="kor">Korean</option>
+            <option value="ita">Italy</option>
+            <option value="jpn">Japanese</option>
+            <option value="pol">Polish</option>
+            <option value="por">Portuguese</option>
+            <option value="rus">Russian</option>
+            <option value="slv">Slovenian</option>
+            <option value="spa">Spanish</option>
+            <option value="swe">Sweden</option>
+            <option value="tur">Turkish</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <span
+            ><i class="fas fa-tachometer-alt"></i> Select engine to use:</span
+          >
+          <input
+            type="radio"
+            id="engine1"
+            class="form-control"
+            value="1"
+            name="engine"
+          />
+          <label for="engine1" class="form-label"
+            >Engine1 (Default, fast, supports most languages)</label
+          >
+          <input
+            type="radio"
+            id="engine2"
+            class="form-control"
+            value="2"
+            name="engine"
+          />
+          <label for="engine2" class="form-label"
+            >Engine2 (Often better for number and special characters)</label
+          >
+        </div>
+        <input type="submit" value="Start Extraction" />
+      </form>
+      <hr />
+      <div class="container">
+        <h3><i class="far fa-image"></i> Image Preview</h3>
+        <img id="img-preview" src="" />
+      </div>
+      <div class="container">
+        <h3><i class="fas fa-spell-check"></i> Text Result</h3>
+        <textarea id="txt-result"></textarea>
+      </div>
+    </main>
+  </body>
+</html>
