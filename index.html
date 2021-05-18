@@ -16,10 +16,10 @@
   </head>
   <body>
     <main class="container">
-      <h1>Image-to-Text-inator</h1>
-      <h2>Extract text from your images</h2>
+      <h1><span>Image</span>-to-<span>Text</span>-inator</h1>
+      <h3>Extract text from your images</h3>
       <form id="form">
-        <div class="mb-3">
+        <div class="form-group">
           <label for="file" class="form-label"
             ><i class="far fa-file-image"></i> Upload your image (.png,
             .jpg/.jpeg, .gif)</label
@@ -32,14 +32,14 @@
           />
         </div>
         <span>OR</span>
-        <div class="mb-3">
+        <div class="form-group">
           <label for="url" class="form-label"
-            ><i class="fas fa-link"></i> Paste URL to source file (Recommended
-            for file sizes > 10MB)</label
+            ><i class="fas fa-link"></i> Paste URL to source file
+            <br />(Recommended for file sizes > 10MB)</label
           >
           <input type="text" id="url" class="form-control" />
         </div>
-        <div class="mb-3">
+        <div class="form-group">
           <label for="language" class="form-label"
             ><i class="fas fa-language"></i> Language</label
           >
@@ -70,42 +70,44 @@
             <option value="tur">Turkish</option>
           </select>
         </div>
-        <div class="mb-3">
+        <div class="form-group">
           <span
             ><i class="fas fa-tachometer-alt"></i> Select engine to use:</span
           >
-          <input
-            type="radio"
-            id="engine1"
-            class="form-control"
-            value="1"
-            name="engine"
-          />
-          <label for="engine1" class="form-label"
-            >Engine1 (Default, fast, supports most languages)</label
-          >
-          <input
-            type="radio"
-            id="engine2"
-            class="form-control"
-            value="2"
-            name="engine"
-          />
-          <label for="engine2" class="form-label"
-            >Engine2 (Often better for number and special characters)</label
-          >
+          <div>
+            <input
+              type="radio"
+              id="engine1"
+              class="form-control"
+              value="1"
+              name="engine"
+            />
+            <label for="engine1" class="form-label"
+              >Engine 1 (Default, fast, supports most languages)</label
+            ><br>
+            <input
+              type="radio"
+              id="engine2"
+              class="form-control"
+              value="2"
+              name="engine"
+            />
+            <label for="engine2" class="form-label"
+              >Engine 2 (Often better for number and special characters)</label
+            >
+          </div>
         </div>
         <input type="submit" value="Start Extraction" />
+        <hr />
+        <div class="wrapper">
+          <h3><i class="far fa-image"></i> Image Preview</h3>
+          <img id="img-preview" src="" />
+        </div>
+        <div class="wrapper">
+          <h3><i class="fas fa-spell-check"></i> Text Result</h3>
+          <textarea id="txt-result"></textarea>
+        </div>
       </form>
-      <hr />
-      <div class="container">
-        <h3><i class="far fa-image"></i> Image Preview</h3>
-        <img id="img-preview" src="" />
-      </div>
-      <div class="container">
-        <h3><i class="fas fa-spell-check"></i> Text Result</h3>
-        <textarea id="txt-result"></textarea>
-      </div>
     </main>
   </body>
 </html>
