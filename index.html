@@ -31,7 +31,7 @@
             accept=".png, .jpg, .jpeg, .gif"
           />
         </div>
-        <span>OR</span>
+        <span id="divider">OR</span>
         <div class="form-group">
           <label for="url" class="form-label"
             ><i class="fas fa-link"></i> Paste URL to source file
@@ -71,7 +71,7 @@
           </select>
         </div>
         <div class="form-group">
-          <span
+          <span class="form-label"
             ><i class="fas fa-tachometer-alt"></i> Select engine to use:</span
           >
           <div>
@@ -82,9 +82,9 @@
               value="1"
               name="engine"
             />
-            <label for="engine1" class="form-label"
+            <label for="engine1"
               >Engine 1 (Default, fast, supports most languages)</label
-            ><br>
+            ><br />
             <input
               type="radio"
               id="engine2"
@@ -92,20 +92,26 @@
               value="2"
               name="engine"
             />
-            <label for="engine2" class="form-label"
+            <label for="engine2"
               >Engine 2 (Often better for number and special characters)</label
             >
           </div>
         </div>
-        <input type="submit" value="Start Extraction" />
+        <input class="btn" type="submit" value="Start Extraction" />
         <hr />
         <div class="wrapper">
-          <h3><i class="far fa-image"></i> Image Preview</h3>
-          <img id="img-preview" src="" />
-        </div>
-        <div class="wrapper">
-          <h3><i class="fas fa-spell-check"></i> Text Result</h3>
-          <textarea id="txt-result"></textarea>
+          <div class="wrapper-inner">
+            <h3><i class="far fa-image"></i> Image Preview</h3>
+            <img
+              id="img-preview"
+              src="https://source.unsplash.com/1600x900/?nature,water"
+            />
+          </div>
+          <div class="wrapper-inner">
+            <h3><i class="fas fa-spell-check"></i> Text Result</h3>
+            <textarea id="txt-result"></textarea>
+            <i class="far fa-clipboard"></i>
+          </div>
         </div>
       </form>
     </main>
