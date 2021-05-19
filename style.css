@@ -64,7 +64,7 @@ i {
 }
 
 .form-group {
-  margin: 2rem 0;
+  margin: 2.5rem 0;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
@@ -106,7 +106,7 @@ select.form-control {
   padding: 5px;
   font-size: 1.25rem;
   outline: none;
-  width: 25%;
+  width: 40%;
   transition: var(--ease-in-out);
 }
 
@@ -190,4 +190,131 @@ label[for="engine2"]:hover {
 .wrapper-inner:nth-of-type(2) .fa-clipboard:hover {
   outline: solid 2px #546484;
   outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2,
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  .container > h3 {
+    margin: 1rem 0 3rem;
+  }
+
+  .form-group {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .form-label {
+    text-align: center;
+    font-size: 1.15rem;
+  }
+
+  .form-control[type="file"] {
+    width: 60%;
+    margin: auto;
+  }
+
+  .form-control[type="text"] {
+    width: 80%;
+    margin: auto;
+  }
+
+  .form-control[type="text"]:hover {
+    box-shadow: initial;
+    transform: scale(1.1);
+  }
+
+  select.form-control {
+    width: 35%;
+    margin: auto;
+  }
+
+  .form-group:nth-of-type(4) div {
+    margin: auto;
+    width: 90%;
+    text-align: center;
+  }
+
+  label[for="engine1"],
+  label[for="engine2"] {
+    font-size: 1.15rem;
+  }
+
+  .btn {
+    width: 75%;
+  }
+
+  .wrapper {
+    margin-top: 1rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .wrapper-inner {
+    width: 100%;
+  }
+
+  .wrapper-inner #img-preview {
+    display: block;
+    margin: 10px auto;
+  }
+
+  .wrapper-inner:nth-of-type(2) .fa-clipboard {
+    top: 53px;
+    left: 33px;
+  }
+}
+
+@media (max-width: 576px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2,
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  .container > h3 {
+    margin: 1rem 0 2.5rem;
+  }
+
+  .form-control[type="file"] {
+    width: 90%;
+  }
+
+  select.form-control {
+    width: 50%;
+  }
+
+  label[for="engine1"],
+  label[for="engine2"] {
+    font-size: 1.1rem;
+  }
+
+  .btn {
+    width: 85%;
+    font-size: 1.15rem;
+  }
+
+  .wrapper-inner {
+    width: 100%;
+  }
+
+  .wrapper-inner #img-preview {
+    margin: 10px auto 20px;
+  }
+
+  .wrapper-inner:nth-of-type(2) .fa-clipboard {
+    top: 48px;
+    left: 25px;
+  }
 }
