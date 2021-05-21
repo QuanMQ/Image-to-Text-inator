@@ -5,6 +5,7 @@
   --ease-in-out: all 0.3s ease-in-out;
 }
 
+/* *BASE STYLES */
 * {
   box-sizing: border-box;
   padding: 0;
@@ -63,6 +64,7 @@ i {
   margin: 5px;
 }
 
+/* *FORM ELEMENTS */
 .form-group {
   margin: 2.5rem 0;
   display: grid;
@@ -158,8 +160,10 @@ label[for="engine2"]:hover {
 .wrapper-inner #img-preview {
   display: block;
   width: 90%;
-  height: 225px;
+  min-height: 225px;
   margin: 10px auto 0;
+  text-align: center;
+  object-fit: contain;
 }
 
 .wrapper-inner #txt-result {
@@ -167,7 +171,7 @@ label[for="engine2"]:hover {
   width: 90%;
   margin: 10px auto 0;
   resize: vertical;
-  height: 225px;
+  min-height: 225px;
   outline: none;
   font-family: inherit;
   font-size: 1.25rem;
@@ -192,6 +196,7 @@ label[for="engine2"]:hover {
   outline-offset: 2px;
 }
 
+/* *MEDIA QUERIES */
 @media (max-width: 768px) {
   h1 {
     font-size: 2rem;
