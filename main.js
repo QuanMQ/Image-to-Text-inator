@@ -5,7 +5,10 @@ const engines = Array.from(document.getElementsByClassName("engine"));
 const imgPreview = document.getElementById("img-preview");
 const textResult = document.getElementById("txt-result");
 const form = document.getElementById("form");
+const clipboard = document.getElementsByClassName("fa-clipboard")[0];
+const copyrightDate = document.getElementById("date");
 
+// *Preview image file
 file.addEventListener("change", (e) => {
   // *Reset text input
   url.value = "";
@@ -18,6 +21,7 @@ file.addEventListener("change", (e) => {
   imgPreview.onload = () => URL.revokeObjectURL(imgPreview.src);
 });
 
+// *Preview image URL
 url.addEventListener("input", () => {
   // *Reset file input
   file.value = "";
@@ -27,6 +31,7 @@ url.addEventListener("input", () => {
   imgPreview.src = url.value;
 });
 
+// *POST request to API
 form.addEventListener("submit", (e) => {
   // *Prevent form submission
   e.preventDefault();
@@ -65,3 +70,18 @@ form.addEventListener("submit", (e) => {
 
   xhr.send(formData);
 });
+
+// *Copy text result
+clipboard.addEventListener("click", () => {
+  const textarea = document.createElement("textarea");
+  textarea.value = textResult.innerHTML;
+  document.body.appendChild(textarea);
+  textarea.select();
+  document.execCommand("copy");
+  textarea.remove();
+  alert("Text copied to clipboard!");
+});
+
+// *Get copyright date
+const year = new Date().getFullYear();
+copyrightDate.innerText = year;
