@@ -3,11 +3,13 @@ const url = document.getElementById("url");
 const language = document.getElementById("language");
 const engines = Array.from(document.getElementsByClassName("engine"));
 const imgPreview = document.getElementById("img-preview");
+const textResult = document.getElementById("txt-result");
 const form = document.getElementById("form");
 
 file.addEventListener("change", (e) => {
   // *Reset text input
   url.value = "";
+  textResult.innerHTML = "";
 
   // *Change img source
   imgPreview.src = URL.createObjectURL(e.target.files[0]);
@@ -19,6 +21,7 @@ file.addEventListener("change", (e) => {
 url.addEventListener("input", () => {
   // *Reset file input
   file.value = "";
+  textResult.innerHTML = "";
 
   // *Change img source
   imgPreview.src = url.value;
@@ -27,6 +30,8 @@ url.addEventListener("input", () => {
 form.addEventListener("submit", (e) => {
   // *Prevent form submission
   e.preventDefault();
+
+  // *Collect form input
   const engine = engines.filter((engine) => engine.checked);
 
   const formData = new FormData();
@@ -40,8 +45,7 @@ form.addEventListener("submit", (e) => {
     alert("Please choose an image file or enter a URL to the image");
     return;
   } else if (file.value && !url.value) {
-    formData.append("file", file.files[0].name);
-    console.log(file.files);
+    formData.append("file", file.files[0]);
   } else {
     formData.append("url", url.value);
   }
@@ -51,7 +55,8 @@ form.addEventListener("submit", (e) => {
 
   xhr.addEventListener("readystatechange", function () {
     if (this.readyState === 4) {
-      console.log(this.responseText);
+      const text = JSON.parse(this.responseText).ParsedResults[0].ParsedText;
+      textResult.innerHTML = text;
     }
   });
 
