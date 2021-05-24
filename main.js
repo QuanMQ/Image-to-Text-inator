@@ -1,6 +1,7 @@
 const file = document.getElementById("file");
 const url = document.getElementById("url");
 const language = document.getElementById("language");
+const receiptTable = document.getElementById("receipt-table");
 const engines = Array.from(document.getElementsByClassName("engine"));
 const imgPreview = document.getElementById("img-preview");
 const textResult = document.getElementById("txt-result");
@@ -42,7 +43,7 @@ form.addEventListener("submit", (e) => {
   const formData = new FormData();
   formData.append("language", language.value);
   formData.append("scale", "true");
-  formData.append("isTable", "true");
+  formData.append("isTable", receiptTable.checked ? "true" : "false");
   formData.append("OCREngine", engine.length == 0 ? "1" : engine[0].value);
 
   // *Check file or url input
@@ -61,7 +62,13 @@ form.addEventListener("submit", (e) => {
   xhr.addEventListener("readystatechange", function () {
     if (this.readyState === 4) {
       const text = JSON.parse(this.responseText).ParsedResults[0].ParsedText;
-      textResult.innerHTML = text;
+      if (!receiptTable.checked) {
+        const regex1 = /\r\n/g;
+        const regex2 = /- /g;
+        textResult.innerHTML = text.replace(regex1, " ").replace(regex2, "");
+      } else {
+        textResult.innerHTML = text;
+      }
     }
   });
 
@@ -69,6 +76,11 @@ form.addEventListener("submit", (e) => {
   xhr.setRequestHeader("apikey", "5784130d2688957");
 
   xhr.send(formData);
+
+  // *Form reset after 2s
+  setTimeout(() => {
+    form.reset();
+  }, 2000);
 });
 
 // *Copy text result

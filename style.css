@@ -113,6 +113,18 @@ footer {
   transform: translate(-5px, -5px);
 }
 
+label[for="receipt-table"] {
+  display: inline-block;
+  margin-left: 5px;
+  padding: 5px;
+  transition: var(--ease-in-out);
+}
+
+label[for="receipt-table"]:hover {
+  transform: skewX(-10deg);
+  outline: solid 2px var(--primary-color);
+}
+
 select.form-control {
   padding: 5px;
   font-size: 1.25rem;
