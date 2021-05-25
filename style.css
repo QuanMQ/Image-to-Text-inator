@@ -75,7 +75,7 @@ footer {
 
 /* *FORM ELEMENTS */
 .form-group {
-  margin: 2.5rem 0;
+  margin: 2rem 0 2.5rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
@@ -262,7 +262,9 @@ label[for="engine2"]:hover {
     margin: auto;
   }
 
-  .form-group:nth-of-type(4) div {
+  .form-group:nth-of-type(3) div,
+  .form-group:nth-of-type(4) div, 
+  .form-group:nth-of-type(5) div {
     margin: auto;
     width: 90%;
     text-align: center;
@@ -290,7 +292,7 @@ label[for="engine2"]:hover {
 
   .wrapper-inner #img-preview {
     display: block;
-    margin: 10px auto;
+    margin: 10px auto 20px;
   }
 
   .wrapper-inner:nth-of-type(2) .fa-clipboard {
@@ -333,10 +335,6 @@ label[for="engine2"]:hover {
 
   .wrapper-inner {
     width: 100%;
-  }
-
-  .wrapper-inner #img-preview {
-    margin: 10px auto 20px;
   }
 
   .wrapper-inner:nth-of-type(2) .fa-clipboard {
